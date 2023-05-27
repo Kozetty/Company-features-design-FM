@@ -17,7 +17,7 @@ html {
 }
 body {
     height: 150vh;
-    background-color: hsl(255, 100%, 100%);
+    background-color: hsl(0, 0%, 98%);
     display: flex;
     flex-direction: column;
     justify-content: center;
