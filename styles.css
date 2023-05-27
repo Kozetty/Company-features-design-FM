@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+html {
+    font-size: 62.5%;
+}
+:root {
+    --guide-outline: 1.5px solid black;
+    --grayish-blue: hsl(229, 6%, 55%);
+    --extra-dark-blue: hsl(234, 12%, 25%);
+    --text-alignment: center;
+    --headers-font-size: 2.3rem;
+}
+body {
+    height: 150vh;
+    background-color: hsl(255, 100%, 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+p{
+    font-size: 1.5rem;
+}
+/* Base styles end here */
+
+
+/* Utility classes */
+.flex--column {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Component layout design */
+.master {
+    display: grid;
+    grid-template-columns: 320px;
+    grid-template-rows: repeat(5, 1fr);
+    gap: 2.5rem;
+}
+
+/* Title component */
+.master-header {
+    align-items: center;
+    align-self: center;
+}
+.first-title {
+    font-size: var(--headers-font-size);
+    font-weight: 200;
+    text-align: var(--text-alignment);
+    color: hsl(229, 6%, 30%);
+}
+.second-title {
+    font-size: var(--headers-font-size);
+    text-align: var(--text-alignment);
+    color: var(--extra-dark-blue);
+}
+.header_description {
+    padding-top: 1.7rem;
+    width: 33ch;
+    white-space: wrap;
+    text-align: var(--text-alignment);
+    color: var(--grayish-blue);
+}
+
+/* Features section */
+.feature-container {
+    border-radius: 6px;
+    box-shadow: 0 10px 10px 7px hsl(229, 25%, 90%);
+    background-color: hsl(255, 100%, 100%);
+}
+.feature-info {
+    margin-top: 2rem;
+    margin-left: 3rem;
+    margin-bottom: 2rem;
+}
+.feature-title {
+    padding-bottom: 0.5rem;
+    font-size: 1.9rem;
+    font-weight: 600;
+    color: var(--extra-dark-blue);
+}
+.feature-description {
+    width: 32ch;
+    white-space: wrap;
+    word-spacing: 1px;
+    font-size: 1.3rem;
+    color: var(--grayish-blue);
+}
+.feature-icon { 
+    padding: 1.7rem 2.6rem 2.3rem 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Modifier classes for top border styles */
+.top-border-supervisor {
+    border-top: 4px solid hsl(180, 62%, 55%);
+}
+.top-border-TeamBuilder{
+    border-top: 4px solid hsl(0, 78%, 62%);
+}
+.top-border-Karma {
+    border-top: 4px solid hsl(34, 97%, 64%);
+}
+.top-border-calculator {
+    border-top: 4px solid hsl(212, 86%, 64%);
+}
+
+/* Tablet responsiveness */
+@media screen and (min-width: 500px){
+    body {
+        height: 100vh;
+    }
+    .master {
+        grid-template-columns: repeat(2, minmax(300px, 1fr));
+        grid-template-rows: repeat(3, minmax(200px, 1fr));
+        grid-template-areas: 
+        'title title'
+        'supervisor teambuilder'
+        'karma calculator';
+    }
+
+    /* Header section */
+    .master-header {
+        align-self: center;
+        grid-area: title;
+    }
+    .first-title, .second-title {
+        line-height: 1.3;
+        font-size: 3.5rem;
+    }
+    .header_description {
+        width: 55ch;
+        white-space: wrap;
+        padding-top: 1rem;
+    }
+}
+
+
+/* Desktop Responsiveness */
+@media screen and (min-width: 1000px){
+    body {
+        height: 100vh;
+    }
+    .master {
+        grid-template-columns: repeat(3, minmax(300px, 1fr));
+        grid-template-rows: repeat(2, minmax(200px, 1fr));
+        grid-template-areas: 
+        'title title title'
+        'supervisor shared calculator';
+    }
+
+    /* Header section */
+    .master-header {
+        grid-area: title;
+        align-self: start;
+    }
+    .first-title, .second-title {
+        line-height: 1.3;
+        font-size: 3.5rem;
+    }
+    .header_description {
+        width: 55ch;
+        white-space: wrap;
+        padding-top: 1rem;
+        font-size: 1.4rem;
+    }
+
+    /* Features section */
+    .supervisor-feat {
+        height: 85%;
+        grid-area: supervisor;
+        align-self: center;
+    }
+    .teambuilder-feat {
+        margin-top: 5.5rem;
+        position: relative;
+        bottom: 57%;
+    }
+    .karma-feat {
+        position: relative;
+        left: 108%;
+        bottom: 73%;
+    }
+    .calculator-feat {
+        height: 85%;
+        grid-area: calculator;
+        align-self: center;
+    }
+    .feature-description {
+        width: 35ch;
+        white-space: wrap;
+    }
+}
